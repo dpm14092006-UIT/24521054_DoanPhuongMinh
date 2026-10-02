@@ -14,11 +14,11 @@
 - [x] Reflow the page to one column at mobile widths, including 375px.
 - [x] Prevent horizontal overflow through sizing and wrapping rules.
 
-### T-02C: Theme Engine — Pending
-- [ ] Add a keyboard-operable light/dark theme button.
-- [ ] Persist the selected theme with the `theme` localStorage key.
-- [ ] Initialize the theme before the page paints to avoid a theme flash.
-- [ ] Respect the operating system color preference when no theme is saved.
+### T-02C: Theme Engine — Complete
+- [x] Add a keyboard-operable light/dark theme button.
+- [x] Persist the selected theme with the `theme` localStorage key.
+- [x] Initialize the theme before the page paints to avoid a theme flash.
+- [x] Respect the operating system color preference when no theme is saved.
 
 ## Acceptance criteria
 - Semantic landmarks and sections have clear accessible names.

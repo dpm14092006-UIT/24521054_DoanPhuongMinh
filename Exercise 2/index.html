@@ -6,6 +6,27 @@
   <meta name="description" content="Portfolio of Doan Phuong Minh, an Information Systems student at UIT.">
   <title>Doan Phuong Minh | Developer Portfolio</title>
   <link rel="stylesheet" href="css/style.css">
+  <script>
+    (() => {
+      let savedTheme = null;
+
+      try {
+        savedTheme = window.localStorage.getItem("theme");
+      } catch {
+        // Keep the page usable when browser storage is unavailable.
+      }
+
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const initialTheme =
+        savedTheme === "light" || savedTheme === "dark"
+          ? savedTheme
+          : prefersDark
+            ? "dark"
+            : "light";
+
+      document.documentElement.dataset.theme = initialTheme;
+    })();
+  </script>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -84,5 +105,7 @@
   <footer>
     <p>© 2026 Doan Phuong Minh</p>
   </footer>
+
+  <script src="js/theme.js"></script>
 </body>
 </html>
