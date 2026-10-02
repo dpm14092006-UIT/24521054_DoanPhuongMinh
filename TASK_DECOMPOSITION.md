@@ -1,12 +1,44 @@
-# Work Breakdown Structure
+# Task Decomposition
 
-## T-01 — Semantic landmark tree
+## T-01 — Semantic DOM Architecture & A11y Contract
 
-- **Objective:** Create the page's semantic landmark structure and an accessible skip link.
-- **Deliverables:** `index.html` and this task declaration.
-- **Landmark hierarchy contract:** exactly three page landmarks, ordered `banner` → `navigation` (named `Primary`) → `main`. The sections inside `main` remain ordinary sections and do not add region landmarks.
-- **Element contract:** zero `<div>` elements in `index.html`.
-- **Skip-link contract:** the first page link is `<a href="#main" class="skip-link">Skip to Content</a>` and targets the page's `<main id="main">`. The main landmark uses `tabindex="-1"` so activating the link can move keyboard focus there without adding it to the normal Tab sequence.
-- **Styling contract:** no CSS is included in this HTML milestone.
-- **Acceptance criteria:** Chrome DevTools Accessibility view shows the three landmarks in the contracted order; the skip link navigates to `main`; the HTML contains zero `div` elements.
-- **Atomic commit:** `git commit -m 'feat(html): semantic landmark tree'`
+### Objective
+Build an accessible semantic HTML landmark structure without using any `<div>` elements.
+
+### Requirements
+- [x] Use semantic HTML landmarks.
+- [x] Use 0 `<div>` elements.
+- [x] Provide an accessible skip link.
+- [x] Include a single `<header>` landmark.
+- [x] Include primary `<nav>` with an accessible label.
+- [x] Include a single `<main>` landmark.
+- [x] Organize content using `<section>` elements.
+- [x] Ensure the skip link targets the main content.
+- [x] Do not include CSS changes in this milestone.
+
+### Landmark Hierarchy Contract
+
+```text
+Document
+├── Skip Link
+├── Header
+│   └── H1
+├── Navigation
+│   └── UL
+│       └── LI → A
+└── Main
+    ├── Section: About
+    └── Section: Projects
+```
+
+### Accessibility Contract
+1. The page must contain exactly one primary `<main>` landmark.
+2. Primary navigation must have an accessible name.
+3. The skip link must navigate directly to the main content.
+4. Sections must have accessible headings.
+5. Native semantic HTML elements must be preferred over generic containers.
+6. No `<div>` elements are permitted in T-01.
+7. The main skip-link target uses `tabindex="-1"` so keyboard activation can move focus there without adding it to the normal Tab sequence.
+
+### Milestone
+ATOMIC MILESTONE T-01: No div tags allowed.
