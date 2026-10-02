@@ -10,6 +10,7 @@
   <title>Resilient UI — Loading Skeleton</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/live-data.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -23,18 +24,18 @@
     <nav class="site-nav" aria-label="Primary navigation">
       <ul>
         <li><a href="#contract">State contract</a></li>
-        <li><a href="#projects" aria-current="page">Loading demo</a></li>
+        <li><a href="#projects" aria-current="page">Live data</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="main-content" tabindex="-1">
     <section id="contract" class="intro" aria-labelledby="intro-title">
-      <p class="eyebrow"><span>Exercise 04</span> <span aria-hidden="true">/</span> T-03A</p>
-      <h1 id="intro-title">A thoughtful pause<br><span>before the work appears.</span></h1>
+      <p class="eyebrow"><span>Exercise 04</span> <span aria-hidden="true">/</span> T-03B</p>
+      <h1 id="intro-title">Good work,<br><span>delivered with clarity.</span></h1>
       <p class="intro-copy">
-        A loading skeleton keeps the project list's shape visible while content is on its way.
-        This milestone uses a CSS-only shimmer and reduced-motion support.
+        When project data arrives, clear metadata and a responsive card grid make the collection
+        easy to scan on any screen.
       </p>
     </section>
 
@@ -44,10 +45,16 @@
           <p class="section-kicker">Workspace / Projects</p>
           <h2 id="projects-title">Recent projects</h2>
         </section>
-        <p class="milestone-label">Loading state</p>
+        <p class="milestone-label">Live data state</p>
       </header>
 
-      <section class="project-loading" aria-labelledby="projects-title" aria-busy="true">
+      <section
+        class="project-loading"
+        data-state="loading"
+        aria-labelledby="projects-title"
+        aria-busy="true"
+        hidden
+      >
         <p class="visually-hidden" role="status" aria-live="polite">
           Loading projects. Please wait.
         </p>
@@ -58,10 +65,81 @@
         </ul>
       </section>
 
+      <section class="project-grid" data-state="live" aria-label="Project list">
+        <article class="project-card" id="distributed-state-engine">
+          <header>
+            <h3>Distributed State Engine</h3>
+            <ul class="project-meta" aria-label="Project technologies">
+              <li class="badge">TypeScript</li>
+              <li class="badge">Frontend</li>
+              <li class="badge">Architecture</li>
+            </ul>
+          </header>
+          <p class="project-description">
+            A lightweight event bus concept for keeping interface state predictable without
+            external libraries.
+          </p>
+          <footer>
+            <a
+              href="https://github.com/search?q=distributed%20state%20engine&amp;type=repositories"
+              aria-label="Search GitHub for distributed state engine repositories"
+            >
+              Find related repositories <span aria-hidden="true">↗</span>
+            </a>
+          </footer>
+        </article>
+
+        <article class="project-card" id="analytics-dashboard">
+          <header>
+            <h3>Analytics Dashboard</h3>
+            <ul class="project-meta" aria-label="Project technologies">
+              <li class="badge">JavaScript</li>
+              <li class="badge">REST API</li>
+              <li class="badge">Analytics</li>
+            </ul>
+          </header>
+          <p class="project-description">
+            A responsive dashboard concept for turning application metrics into a readable
+            overview.
+          </p>
+          <footer>
+            <a
+              href="https://github.com/search?q=analytics%20dashboard%20REST%20API&amp;type=repositories"
+              aria-label="Search GitHub for analytics dashboard REST API repositories"
+            >
+              Find related repositories <span aria-hidden="true">↗</span>
+            </a>
+          </footer>
+        </article>
+
+        <article class="project-card" id="portfolio-system">
+          <header>
+            <h3>Portfolio System</h3>
+            <ul class="project-meta" aria-label="Project technologies">
+              <li class="badge">HTML</li>
+              <li class="badge">CSS</li>
+              <li class="badge">Accessibility</li>
+            </ul>
+          </header>
+          <p class="project-description">
+            A semantic portfolio interface designed to stay readable and useful across screen
+            sizes.
+          </p>
+          <footer>
+            <a
+              href="https://github.com/search?q=accessible%20HTML%20CSS%20portfolio&amp;type=repositories"
+              aria-label="Search GitHub for accessible HTML CSS portfolio repositories"
+            >
+              Find related repositories <span aria-hidden="true">↗</span>
+            </a>
+          </footer>
+        </article>
+      </section>
+
       <footer class="panel-footer">
         <span class="loading-indicator" aria-hidden="true"></span>
-        <p>Preparing your project list</p>
-        <p class="panel-index">01 <span aria-hidden="true">/</span> 04 states</p>
+        <p>3 projects loaded</p>
+        <p class="panel-index">02 <span aria-hidden="true">/</span> 04 states</p>
       </footer>
     </section>
   </main>

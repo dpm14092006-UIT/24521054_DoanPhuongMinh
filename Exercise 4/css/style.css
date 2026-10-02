@@ -253,6 +253,10 @@ main {
   white-space: nowrap;
 }
 
+[data-state][hidden] {
+  display: none !important;
+}
+
 .panel-footer {
   display: flex;
   flex-wrap: wrap;

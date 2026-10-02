@@ -44,11 +44,20 @@ Only one state is rendered at a time. Each implementation milestone is staged an
 - [x] Implement the loading presentation with pure CSS.
 - [x] Add a horizontal shimmer gradient and a reduced-motion fallback.
 - [x] Keep skeleton placeholders decorative and expose a loading status to assistive technology.
-- [ ] Commit separately as `feat(css): skeleton`.
+- [x] Commit separately as `feat(css): skeleton`.
 
 ### T-03B — Live Data State
-- [ ] Display metadata badges using Flexbox.
-- [ ] Display project items using CSS Grid.
+
+**Goal:** Display successfully loaded project data.
+
+**Condition:** `LOADING → LIVE` when a successful response contains at least one item.
+
+Requirements:
+- [x] Use CSS Grid for the project list.
+- [x] Use Flexbox for metadata badges.
+- [x] Render each project as a semantic `<article>` with a heading.
+- [x] Keep metadata readable on narrow screens.
+- [x] Keep this milestone separate from the Empty and Error states.
 - [ ] Commit separately after T-03A.
 
 ### T-03C — Empty State
