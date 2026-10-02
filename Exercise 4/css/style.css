@@ -12,6 +12,9 @@
   --color-border: #26364c;
   --color-accent: #93e4cb;
   --color-focus: #a5f3fc;
+  --color-danger: #fb7185;
+  --color-danger-border: rgb(251 113 133 / 32%);
+  --color-danger-soft: rgb(251 113 133 / 5%);
   --color-accent-contrast: #0b1220;
   --color-background-glow: rgb(29 78 79 / 22%);
   --color-border-subtle: rgb(148 163 184 / 14%);
@@ -185,7 +188,7 @@ main {
   line-height: 0.98;
 }
 
-.intro h1 span {
+.intro h1 .intro-title-emphasis {
   color: var(--color-heading-muted);
 }
 

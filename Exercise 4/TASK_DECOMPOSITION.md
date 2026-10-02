@@ -73,12 +73,32 @@ Requirements:
 - [x] Commit separately after T-03B as `feat(ui): empty state`.
 
 ### T-03D — Error State and Retry
-- [ ] Display an accessible error message when loading fails.
-- [ ] Provide a keyboard-operable Retry button that transitions back to `LOADING`.
-- [ ] Commit separately after T-03C.
 
-## Scope for this implementation
+**Goal:** Display an accessible error message when loading fails and give the user a direct retry action.
 
-This initial milestone implements **T-03A only**. T-03B, T-03C, and T-03D remain planned; their UI and behavior must not be added in the T-03A commit.
+**State transitions:** `LOADING → ERROR` when the request fails; `ERROR → LOADING` when Retry is activated.
+
+Requirements:
+- [x] Expose the error message as a labeled alert.
+- [x] Use a native Retry button that works with Tab, Enter, and Space.
+- [x] Make Retry return the component to `LOADING` and move focus to the loading region.
+- [x] Keep one state visible at a time and announce changes through an `aria-live` status.
+- [x] Commit separately after T-03C as `feat(js): error state retry`.
+
+## Acceptance checks
+
+- [x] Render exactly one of `LOADING`, `LIVE`, `EMPTY`, or `ERROR` at a time.
+- [x] Keep the document semantic and free of `<div>` elements.
+- [x] Stop shimmer animation when `prefers-reduced-motion: reduce` is set.
+- [x] Fit every state at a 375px viewport without horizontal overflow.
+- [x] Reach Retry with Tab and activate it with Enter and Space.
+- [x] Finish the browser check with zero Console errors.
+- [x] Commit each sub-task independently.
+
+## Implementation notes
+
+Each state was added in its own commit, in order: `feat(css): skeleton`, `feat(css): live data state`, `feat(ui): empty state`, and `feat(js): error state retry`.
+
+The final page starts in `LOADING`. The project data is a local demo fixture rather than an API response. The `?state=` query parameter and `window.showProjectState(...)` are available to preview outcomes. Retry returns from `ERROR` to `LOADING`.
 
 The Exercise 1 semantic DOM contract also applies: use semantic HTML and no `<div>` elements.

@@ -2,11 +2,20 @@
 
 This exercise introduces a projects component with a four-state contract: `LOADING`, `LIVE`, `EMPTY`, and `ERROR`. The state machine and implementation boundaries are recorded in [TASK_DECOMPOSITION.md](TASK_DECOMPOSITION.md).
 
-## Current milestone: T-03C
+## Four-state demo
 
-The page currently demonstrates the Empty state with an accessible message and no project cards. The T-03A skeleton and T-03B live data markup and styles are retained as separate hidden states. There is no data request or state-switching JavaScript yet.
+The page starts in `LOADING`. The T-03B project cards, T-03C empty message, and T-03D error panel are retained as mutually exclusive states. Retry switches from Error back to Loading and returns focus to the loading region.
 
-The markup uses semantic HTML and contains no `<div>` elements, following Exercise 1's DOM contract. The loading message is exposed to assistive technology, and the shimmer stops when the user prefers reduced motion.
+The project collection is a local demo fixture; no API request is made. To preview a state, append `?state=loading`, `?state=live`, `?state=empty`, or `?state=error` to the page URL. The default with no query string is `LOADING`. You can also preview states from DevTools Console:
+
+```js
+window.showProjectState("loading");
+window.showProjectState("live");
+window.showProjectState("empty");
+window.showProjectState("error");
+```
+
+The markup uses semantic HTML and contains no `<div>` elements, following Exercise 1's DOM contract. State updates use a polite live region, the error panel is a labeled alert, and the shimmer stops when the user prefers reduced motion.
 
 ## Run locally
 
@@ -24,7 +33,8 @@ Then open `http://localhost:8000`.
 - `css/style.css` defines the responsive page layout and visual theme.
 - `css/skeleton.css` contains only the T-03A skeleton and shimmer styles.
 - `css/live-data.css` contains the T-03B card grid and Flexbox badge styles.
-- `css/states.css` contains the T-03C empty-state styles.
+- `css/states.css` contains the T-03C empty and T-03D error/retry styles.
+- `js/projects-state.js` switches between the four states and handles Retry.
 - `TASK_DECOMPOSITION.md` defines the four-state machine and separate milestones.
 
-At a viewport width of 375px, the page content is designed to fit without horizontal scrolling. Empty and Error/Retry behavior remain for T-03C and T-03D.
+At a viewport width of 375px, the page content is designed to fit without horizontal scrolling.

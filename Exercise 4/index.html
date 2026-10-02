@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta
     name="description"
-    content="An accessible project component demonstrating its empty data state."
+    content="A semantic, accessible project list with loading, live, empty, and error states."
   >
-  <title>Resilient UI — Empty State</title>
+  <title>Resilient UI — Four-State Projects</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/live-data.css">
@@ -25,28 +25,34 @@
     <nav class="site-nav" aria-label="Primary navigation">
       <ul>
         <li><a href="#contract">State contract</a></li>
-        <li><a href="#projects" aria-current="page">Empty state</a></li>
+        <li><a href="#projects" aria-current="page">Project states</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="main-content" tabindex="-1">
     <section id="contract" class="intro" aria-labelledby="intro-title">
-      <p class="eyebrow"><span>Exercise 04</span> <span aria-hidden="true">/</span> T-03C</p>
-      <h1 id="intro-title">A useful answer,<br><span>even when the list is empty.</span></h1>
-      <p class="intro-copy">
-        An empty response is a valid result. A clear message lets people understand what happened
-        without mistaking it for a loading or error state.
+      <p class="eyebrow">
+        <span>Exercise 04</span> <span aria-hidden="true">/</span>
+        <span id="milestone-id">T-03A</span>
+      </p>
+      <h1 id="intro-title">
+        <span id="intro-title-lead">A thoughtful pause</span><br>
+        <span class="intro-title-emphasis" id="intro-title-emphasis">before the work appears.</span>
+      </h1>
+      <p class="intro-copy" id="intro-copy">
+        A loading skeleton keeps the project list's shape visible while content is on its way.
+        This milestone uses a CSS-only shimmer and reduced-motion support.
       </p>
     </section>
 
-    <section id="projects" class="project-panel" aria-labelledby="projects-title">
+    <section id="projects" class="project-panel" aria-labelledby="projects-title" aria-busy="false">
       <header class="section-heading">
         <section>
           <p class="section-kicker">Workspace / Projects</p>
           <h2 id="projects-title">Recent projects</h2>
         </section>
-        <p class="milestone-label">Empty state</p>
+        <p class="milestone-label" id="current-state-label">Loading state</p>
       </header>
 
       <section
@@ -54,11 +60,8 @@
         data-state="loading"
         aria-labelledby="projects-title"
         aria-busy="true"
-        hidden
+        tabindex="-1"
       >
-        <p class="visually-hidden" role="status" aria-live="polite">
-          Loading projects. Please wait.
-        </p>
         <ul class="skeleton-list" aria-hidden="true">
           <li class="skeleton-item"></li>
           <li class="skeleton-item"></li>
@@ -137,19 +140,37 @@
         </article>
       </section>
 
-      <section
-        class="empty-state"
-        data-state="empty"
-        aria-labelledby="empty-title"
-      >
+      <section class="empty-state" data-state="empty" aria-labelledby="empty-title" hidden>
         <h3 id="empty-title">No projects found</h3>
         <p>There are currently no projects available to display.</p>
       </section>
 
+      <section
+        class="error-state"
+        data-state="error"
+        role="alert"
+        aria-labelledby="error-title"
+        hidden
+      >
+        <h3 id="error-title">Unable to load projects</h3>
+        <p>Something went wrong while loading the project data.</p>
+        <button class="retry-button" type="button" id="retry-projects">
+          Try again
+        </button>
+      </section>
+
+      <p
+        class="visually-hidden"
+        id="project-status"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      ></p>
+
       <footer class="panel-footer">
         <span class="loading-indicator" aria-hidden="true"></span>
-        <p>No projects are currently available</p>
-        <p class="panel-index">03 <span aria-hidden="true">/</span> 04 states</p>
+        <p id="visible-state-summary">Preparing your project list</p>
+        <p class="panel-index"><span id="current-state-index">01</span> <span aria-hidden="true">/</span> 04 states</p>
       </footer>
     </section>
   </main>
@@ -158,5 +179,6 @@
     <p>Exercise 4 <span aria-hidden="true">·</span> Resilient Component Architecture</p>
     <a href="TASK_DECOMPOSITION.md">View the state machine</a>
   </footer>
+  <script src="js/projects-state.js"></script>
 </body>
 </html>
