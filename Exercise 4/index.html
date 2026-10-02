@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta
     name="description"
-    content="A semantic, accessible loading skeleton built with pure CSS."
+    content="An accessible project component demonstrating its empty data state."
   >
-  <title>Resilient UI — Loading Skeleton</title>
+  <title>Resilient UI — Empty State</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/live-data.css">
+  <link rel="stylesheet" href="css/states.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -24,18 +25,18 @@
     <nav class="site-nav" aria-label="Primary navigation">
       <ul>
         <li><a href="#contract">State contract</a></li>
-        <li><a href="#projects" aria-current="page">Live data</a></li>
+        <li><a href="#projects" aria-current="page">Empty state</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="main-content" tabindex="-1">
     <section id="contract" class="intro" aria-labelledby="intro-title">
-      <p class="eyebrow"><span>Exercise 04</span> <span aria-hidden="true">/</span> T-03B</p>
-      <h1 id="intro-title">Good work,<br><span>delivered with clarity.</span></h1>
+      <p class="eyebrow"><span>Exercise 04</span> <span aria-hidden="true">/</span> T-03C</p>
+      <h1 id="intro-title">A useful answer,<br><span>even when the list is empty.</span></h1>
       <p class="intro-copy">
-        When project data arrives, clear metadata and a responsive card grid make the collection
-        easy to scan on any screen.
+        An empty response is a valid result. A clear message lets people understand what happened
+        without mistaking it for a loading or error state.
       </p>
     </section>
 
@@ -45,7 +46,7 @@
           <p class="section-kicker">Workspace / Projects</p>
           <h2 id="projects-title">Recent projects</h2>
         </section>
-        <p class="milestone-label">Live data state</p>
+        <p class="milestone-label">Empty state</p>
       </header>
 
       <section
@@ -65,7 +66,7 @@
         </ul>
       </section>
 
-      <section class="project-grid" data-state="live" aria-label="Project list">
+      <section class="project-grid" data-state="live" aria-label="Project list" hidden>
         <article class="project-card" id="distributed-state-engine">
           <header>
             <h3>Distributed State Engine</h3>
@@ -136,10 +137,19 @@
         </article>
       </section>
 
+      <section
+        class="empty-state"
+        data-state="empty"
+        aria-labelledby="empty-title"
+      >
+        <h3 id="empty-title">No projects found</h3>
+        <p>There are currently no projects available to display.</p>
+      </section>
+
       <footer class="panel-footer">
         <span class="loading-indicator" aria-hidden="true"></span>
-        <p>3 projects loaded</p>
-        <p class="panel-index">02 <span aria-hidden="true">/</span> 04 states</p>
+        <p>No projects are currently available</p>
+        <p class="panel-index">03 <span aria-hidden="true">/</span> 04 states</p>
       </footer>
     </section>
   </main>

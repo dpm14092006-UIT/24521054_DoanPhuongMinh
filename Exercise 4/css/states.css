@@ -1,0 +1,29 @@
+/* SUB-TASK T-03C: Empty State */
+
+.empty-state {
+  display: grid;
+  min-height: 14rem;
+  place-items: center;
+  gap: 0.5rem;
+  padding: 2rem;
+  border: 1px dashed var(--color-border);
+  border-radius: 0.8rem;
+  background: var(--color-surface);
+  color: var(--color-text);
+  text-align: center;
+}
+
+.empty-state h3,
+.empty-state p {
+  margin: 0;
+}
+
+.empty-state h3 {
+  font-size: 1.2rem;
+}
+
+.empty-state p {
+  max-width: 40rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}

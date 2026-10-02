@@ -58,11 +58,19 @@ Requirements:
 - [x] Render each project as a semantic `<article>` with a heading.
 - [x] Keep metadata readable on narrow screens.
 - [x] Keep this milestone separate from the Empty and Error states.
-- [ ] Commit separately after T-03A.
+- [x] Commit separately after T-03A as `feat(css): live data state`.
 
 ### T-03C — Empty State
-- [ ] Display an accessible message when a successful response contains no items.
-- [ ] Commit separately after T-03B.
+
+**Goal:** Display an accessible message when a request succeeds but returns no data.
+
+**Condition:** `LOADING → EMPTY` when a successful response contains no items.
+
+Requirements:
+- [x] Use semantic HTML and a clear empty-data message.
+- [x] Render no fake project cards in the empty state.
+- [x] Keep Error and Retry behavior out of this milestone.
+- [x] Commit separately after T-03B as `feat(ui): empty state`.
 
 ### T-03D — Error State and Retry
 - [ ] Display an accessible error message when loading fails.
