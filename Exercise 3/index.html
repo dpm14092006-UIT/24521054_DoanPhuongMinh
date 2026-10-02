@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Portfolio of Doan Phuong Minh, an Information Systems student at UIT."
+  >
+  <title>Doan Phuong Minh | UIT Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    (() => {
+      let savedTheme = null;
+
+      try {
+        savedTheme = window.localStorage.getItem("theme");
+      } catch {
+        // The page remains usable when browser storage is unavailable.
+      }
+
+      const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
+      const initialTheme =
+        savedTheme === "light" || savedTheme === "dark"
+          ? savedTheme
+          : prefersDark
+            ? "dark"
+            : "light";
+
+      document.documentElement.dataset.theme = initialTheme;
+    })();
+  </script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <a class="brand" href="#main-content" aria-label="Doan Phuong Minh, home">
+      <span class="brand-mark" aria-hidden="true">M</span>
+      <span>Doan Phuong Minh</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <ul class="nav-list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button
+      id="theme-toggle"
+      class="theme-toggle"
+      type="button"
+      aria-label="Enable dark mode"
+      aria-pressed="false"
+    >
+      <span id="theme-icon" class="theme-icon" aria-hidden="true">☾</span>
+      <span id="theme-label">Dark mode</span>
+    </button>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section id="about" class="hero" aria-labelledby="hero-title">
+      <figure class="hero-portrait">
+        <img
+          src="assets/portrait.png"
+          alt="Doan Phuong Minh in front of a mountain landscape"
+          width="1024"
+          height="1024"
+        >
+        <figcaption>Information Systems · UIT</figcaption>
+      </figure>
+
+      <section class="hero-content" aria-label="Introduction">
+        <p class="eyebrow"><span aria-hidden="true">✳</span> Information Systems Student · UIT</p>
+        <h1 id="hero-title">Building thoughtful, accessible web experiences.</h1>
+        <p class="hero-pitch">
+          I study Information Systems at the University of Information Technology
+          (UIT), VNU-HCM. I enjoy creating responsive interfaces and learning how
+          well-structured software can make everyday work easier.
+        </p>
+        <ul class="hero-highlights" aria-label="Portfolio highlights">
+          <li>Semantic HTML</li>
+          <li>Responsive CSS</li>
+          <li>Practical JavaScript</li>
+        </ul>
+        <a href="#projects" class="button button-primary">
+          Explore my projects <span aria-hidden="true">↗</span>
+        </a>
+      </section>
+    </section>
+
+    <section id="skills" class="content-section" aria-labelledby="skills-title">
+      <header class="section-heading">
+        <p class="section-kicker">What I work with</p>
+        <h2 id="skills-title">Skills &amp; tools</h2>
+        <p>Technologies I use in coursework and personal projects.</p>
+      </header>
+
+      <section class="skills-matrix" aria-label="Skills by category">
+        <article class="skill-group">
+          <p class="card-index">01</p>
+          <h3>Frontend</h3>
+          <p>Building clear, responsive interfaces for the web.</p>
+          <ul class="badge-list">
+            <li class="badge">HTML5</li>
+            <li class="badge">CSS3</li>
+            <li class="badge">JavaScript</li>
+            <li class="badge">React</li>
+          </ul>
+        </article>
+
+        <article class="skill-group">
+          <p class="card-index">02</p>
+          <h3>Backend</h3>
+          <p>Learning to build reliable services and data-backed apps.</p>
+          <ul class="badge-list">
+            <li class="badge">Java</li>
+            <li class="badge">Spring Boot</li>
+            <li class="badge">PostgreSQL</li>
+          </ul>
+        </article>
+
+        <article class="skill-group">
+          <p class="card-index">03</p>
+          <h3>Data &amp; tools</h3>
+          <p>Exploring data workflows and collaborative development.</p>
+          <ul class="badge-list">
+            <li class="badge">Python</li>
+            <li class="badge">SQL</li>
+            <li class="badge">Power BI</li>
+            <li class="badge">Git</li>
+          </ul>
+        </article>
+      </section>
+    </section>
+
+    <section id="projects" class="content-section projects-section" aria-labelledby="projects-title">
+      <header class="section-heading">
+        <p class="section-kicker">Selected work</p>
+        <h2 id="projects-title">Projects</h2>
+        <p>A few learning projects that bring together interface design, data, and software structure.</p>
+      </header>
+
+      <section class="project-grid" aria-label="Project list">
+        <article class="project-card" data-category="frontend">
+          <header class="card-header">
+            <p class="card-index">01 / FRONTEND</p>
+            <span class="project-symbol" aria-hidden="true">◩</span>
+          </header>
+          <h3>Developer Portfolio</h3>
+          <p class="project-description">
+            A responsive portfolio focused on semantic structure, accessible
+            navigation, and a persistent light and dark theme.
+          </p>
+          <ul class="project-tags" aria-label="Technologies">
+            <li>HTML</li>
+            <li>CSS Grid</li>
+            <li>JavaScript</li>
+          </ul>
+          <footer class="card-footer">
+            <a href="#contact" aria-label="Ask me about the Developer Portfolio project">
+              Discuss this project <span aria-hidden="true">↗</span>
+            </a>
+          </footer>
+        </article>
+
+        <article class="project-card" data-category="backend">
+          <header class="card-header">
+            <p class="card-index">02 / BACKEND</p>
+            <span class="project-symbol" aria-hidden="true">⌘</span>
+          </header>
+          <h3>Information Management System</h3>
+          <p class="project-description">
+            A database-driven application concept for organizing records and
+            making common information easier to manage.
+          </p>
+          <ul class="project-tags" aria-label="Technologies">
+            <li>Java</li>
+            <li>Spring Boot</li>
+            <li>PostgreSQL</li>
+          </ul>
+          <footer class="card-footer">
+            <a href="#contact" aria-label="Ask me about the Information Management System project">
+              Discuss this project <span aria-hidden="true">↗</span>
+            </a>
+          </footer>
+        </article>
+
+        <article class="project-card" data-category="fullstack">
+          <header class="card-header">
+            <p class="card-index">03 / FULL STACK</p>
+            <span class="project-symbol" aria-hidden="true">▥</span>
+          </header>
+          <h3>Analytics Dashboard</h3>
+          <p class="project-description">
+            A dashboard concept for turning application and business metrics
+            into a readable, responsive overview.
+          </p>
+          <ul class="project-tags" aria-label="Technologies">
+            <li>React</li>
+            <li>REST API</li>
+            <li>SQL</li>
+          </ul>
+          <footer class="card-footer">
+            <a href="#contact" aria-label="Ask me about the Analytics Dashboard project">
+              Discuss this project <span aria-hidden="true">↗</span>
+            </a>
+          </footer>
+        </article>
+      </section>
+    </section>
+
+    <section id="contact" class="contact-section" aria-labelledby="contact-title">
+      <section class="contact-intro">
+        <p class="section-kicker">Get in touch</p>
+        <h2 id="contact-title">Have an idea?</h2>
+        <p>Use the form to try the validation and submission states for this exercise.</p>
+        <p class="contact-note">This demo runs in your browser and is not connected to an inbox.</p>
+      </section>
+
+      <form id="contact-form" class="contact-form">
+        <fieldset class="form-fields">
+          <legend>Your message</legend>
+
+          <label for="name">Name</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            autocomplete="name"
+            placeholder="Your name"
+            required
+            minlength="2"
+          >
+
+          <label for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            placeholder="you@example.com"
+            required
+          >
+
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Tell me a little about it..."
+            required
+            minlength="10"
+          ></textarea>
+
+          <button class="button button-primary submit-button" type="submit">
+            Send message <span aria-hidden="true">↗</span>
+          </button>
+
+          <p id="form-status" class="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        </fieldset>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-brand" href="#main-content">Doan Phuong Minh <span>· UIT</span></a>
+    <p>© 2026 Doan Phuong Minh. Made for learning and building.</p>
+    <a class="back-to-top" href="#main-content">Back to top ↑</a>
+  </footer>
+</body>
+</html>
