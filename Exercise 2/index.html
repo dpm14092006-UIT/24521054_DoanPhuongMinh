@@ -3,32 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Doan Phuong Minh, an Information Systems student at UIT.">
   <title>Doan Phuong Minh | Developer Portfolio</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to main content</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <header>
+  <header class="site-header">
     <h1>Doan Phuong Minh</h1>
+    <p>Information Systems Student · UIT</p>
+    <button
+      class="theme-toggle"
+      type="button"
+      aria-label="Switch color theme"
+      aria-pressed="false"
+    >
+      Dark mode
+    </button>
   </header>
 
-  <nav aria-label="Primary navigation">
+  <nav class="site-nav" aria-label="Primary navigation">
     <ul>
       <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <main id="main" tabindex="-1">
+  <main id="main-content" tabindex="-1">
     <section id="about" aria-labelledby="about-heading">
-      <h2 id="about-heading">About</h2>
-      <p>Information Systems student at the University of Information Technology.</p>
+      <h2 id="about-heading">About me</h2>
+      <p>
+        I study Information Systems at the University of Information Technology
+        (UIT), VNU-HCM, with an interest in accessible and responsive web
+        development.
+      </p>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Technical skills</h2>
+
+      <article>
+        <h3>Frontend</h3>
+        <p>HTML, CSS, JavaScript, React</p>
+      </article>
+
+      <article>
+        <h3>Backend</h3>
+        <p>Java, Spring Boot, PostgreSQL</p>
+      </article>
+
+      <article>
+        <h3>Data</h3>
+        <p>Python, SQL, Power BI</p>
+      </article>
     </section>
 
     <section id="projects" aria-labelledby="projects-heading">
-      <h2 id="projects-heading">Projects</h2>
-      <p>Selected work and areas of interest.</p>
+      <h2 id="projects-heading">Selected projects</h2>
+
+      <article>
+        <h3>Developer portfolio</h3>
+        <p>A responsive portfolio focused on semantic structure and accessibility.</p>
+      </article>
+
+      <article>
+        <h3>Information system</h3>
+        <p>A database-driven information management system.</p>
+      </article>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <p>University of Information Technology — VNU-HCM</p>
     </section>
   </main>
 

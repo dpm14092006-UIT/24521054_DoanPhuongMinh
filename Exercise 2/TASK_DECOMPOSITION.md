@@ -9,10 +9,10 @@
 - [x] Style the keyboard-accessible skip link.
 - [x] Route page colors through CSS variables.
 
-### T-02B: 2D Grid Layout — Pending
-- [ ] Build the portfolio with semantic HTML and a responsive 12-column CSS Grid.
-- [ ] Reflow the page to one column at mobile widths, including 375px.
-- [ ] Prevent horizontal overflow through sizing and wrapping rules.
+### T-02B: 2D Grid Layout — Complete
+- [x] Build the portfolio with semantic HTML and a responsive 12-column CSS Grid.
+- [x] Reflow the page to one column at mobile widths, including 375px.
+- [x] Prevent horizontal overflow through sizing and wrapping rules.
 
 ### T-02C: Theme Engine — Pending
 - [ ] Add a keyboard-operable light/dark theme button.
