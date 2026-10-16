@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Đăng ký tham gia Tech Meetup 2026.">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'self'; form-action 'self'">
+  <title>Tech Meetup 2026</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Bỏ qua tới nội dung chính</a>
+  <header><h1>Tech Meetup 2026</h1></header>
+
+  <main id="main">
+    <section id="event" aria-labelledby="cd-title" data-target="2026-12-05T12:00:00Z">
+      <h2 id="cd-title">Sự kiện bắt đầu sau</h2>
+      <p id="event-time"></p>
+      <div class="countdown" role="timer">
+        <div><span data-unit="days">00</span> ngày</div>
+        <div><span data-unit="hours">00</span> giờ</div>
+        <div><span data-unit="minutes">00</span> phút</div>
+        <div><span data-unit="seconds">00</span> giây</div>
+      </div>
+      <p id="cd-done" hidden>🎉 Sự kiện đã bắt đầu!</p>
+    </section>
+
+    <section aria-labelledby="form-title">
+      <h2 id="form-title">Đăng ký tham gia</h2>
+      <form id="signup" novalidate data-state="idle">
+        <label for="name">Họ tên</label>
+        <input id="name" name="name" required maxlength="60" autocomplete="name">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required maxlength="100" autocomplete="email">
+        <button type="submit" id="submit-btn">Đăng ký</button>
+        <p id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
