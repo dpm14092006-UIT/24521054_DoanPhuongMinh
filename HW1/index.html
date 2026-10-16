@@ -2,14 +2,17 @@
 <html lang="vi">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'; base-uri 'self'; form-action 'self'">
   <title>Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Bỏ qua tới nội dung chính</a>
   <header class="header">
     <div class="logo">Tên Của Bạn</div>
-    <button onclick="toggleMenu()" aria-expanded="false" aria-controls="menu" id="menu-btn">Menu</button>
+    <button aria-expanded="false" aria-controls="menu" id="menu-btn">Menu</button>
     <nav class="nav" id="menu" aria-label="Menu chính">
       <a href="#about">Giới thiệu</a>
       <a href="#projects">Dự án</a>
@@ -34,20 +37,5 @@
       <a href="mailto:ban@example.com">ban@example.com</a>
     </section>
   </main>
-
-  <script>
-    const btn = document.getElementById('menu-btn');
-    const menu = document.getElementById('menu');
-    function toggleMenu() {
-      const open = menu.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open);
-    }
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && menu.classList.contains('open')) {
-        toggleMenu();
-        btn.focus();   // trả focus về nút, không bị lạc
-      }
-    });
-  </script>
 </body>
 </html>
