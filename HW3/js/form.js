@@ -1,5 +1,6 @@
 import { createMachine } from './formMachine.js';
 import { submitRegistration } from './api.js';
+import { validate } from './sanitize.js';
 
 export function initForm(form) {
   const btn = form.querySelector('#submit-btn');
@@ -18,17 +19,27 @@ export function initForm(form) {
     e.preventDefault();
     if (machine.state === 'submitting') return;  // lớp bảo vệ 1: đang gửi thì bỏ qua
 
-    const name = form.name.value;
-    const email = form.email.value;
+    const { data, errors, ok } = validate({
+      name: form.elements.name.value,
+      email: form.elements.email.value,
+    });
+    if (!ok) {
+      status.textContent = Object.values(errors).join(' ');
+      (errors.name ? form.elements.name : form.elements.email).focus();
+      return;
+    }
+
     if (!machine.send('SUBMIT')) return;         // lớp bảo vệ 2: máy trạng thái từ chối
-    status.innerHTML = 'Đang gửi...';
+    status.textContent = '';
+
     try {
-      await submitRegistration({ name, email });
+      await submitRegistration(data);
       machine.send('RESOLVE');
-      status.innerHTML = 'Cảm ơn <b>' + name + '</b>, bạn đã đăng ký thành công!';
+      status.textContent = `Cảm ơn ${data.name}, bạn đã đăng ký thành công!`;
+      form.reset();
     } catch (err) {
       machine.send('REJECT');
-      status.innerHTML = err.message;
+      status.textContent = err.message;
     }
   });
 }
