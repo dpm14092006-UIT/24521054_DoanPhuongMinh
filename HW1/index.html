@@ -1,36 +1,38 @@
 <!doctype html>
-<html>
+<html lang="vi">
 <head>
   <meta charset="utf-8">
   <title>Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="header">
+  <header class="header">
     <div class="logo">Tên Của Bạn</div>
     <button onclick="toggleMenu()">Menu</button>
-    <div class="nav" id="menu">
+    <nav class="nav" id="menu" aria-label="Menu chính">
       <a href="#about">Giới thiệu</a>
       <a href="#projects">Dự án</a>
       <a href="#contact">Liên hệ</a>
-    </div>
-  </div>
+    </nav>
+  </header>
 
-  <div id="about">
-    <h1>Xin chào, tôi là Tên Của Bạn</h1>
-    <p class="muted">Tôi đang học lập trình web.</p>
-    <img src="avatar.jpg">
-  </div>
+  <main>
+    <section id="about">
+      <h1>Xin chào, tôi là Tên Của Bạn</h1>
+      <p class="muted">Tôi đang học lập trình web.</p>
+      <img src="avatar.jpg" alt="Ảnh chân dung của Tên Của Bạn">
+    </section>
 
-  <div id="projects">
-    <h2>Dự án</h2>
-    <p class="muted">Drum Kit – bộ trống chơi bằng bàn phím.</p>
-  </div>
+    <section id="projects">
+      <h2>Dự án</h2>
+      <p class="muted">Drum Kit – bộ trống chơi bằng bàn phím.</p>
+    </section>
 
-  <div id="contact">
-    <h2>Liên hệ</h2>
-    <a href="mailto:ban@example.com">ban@example.com</a>
-  </div>
+    <section id="contact">
+      <h2>Liên hệ</h2>
+      <a href="mailto:ban@example.com">ban@example.com</a>
+    </section>
+  </main>
 
   <script>
     function toggleMenu() {
