@@ -3,5 +3,7 @@ body { font-family: system-ui, sans-serif; margin: 0; padding: 0 16px; }
 .nav { display: none; gap: 12px; }
 .nav.open { display: flex; }
 .muted { color: #595959; }   /* tỉ lệ ~7:1 trên nền trắng, đạt AA */
-button:focus { outline: none; }     /* lỗi: mất viền focus */
+:focus-visible { outline: 3px solid #1a56db; outline-offset: 2px; }
 img { max-width: 200px; }
+.skip-link { position: absolute; left: -9999px; }
+.skip-link:focus { left: 16px; top: 16px; background: #fff; padding: 8px; }
