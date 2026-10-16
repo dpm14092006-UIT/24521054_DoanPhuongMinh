@@ -6,9 +6,10 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Bỏ qua tới nội dung chính</a>
   <header class="header">
     <div class="logo">Tên Của Bạn</div>
-    <button onclick="toggleMenu()">Menu</button>
+    <button onclick="toggleMenu()" aria-expanded="false" aria-controls="menu" id="menu-btn">Menu</button>
     <nav class="nav" id="menu" aria-label="Menu chính">
       <a href="#about">Giới thiệu</a>
       <a href="#projects">Dự án</a>
@@ -16,7 +17,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main">
     <section id="about">
       <h1>Xin chào, tôi là Tên Của Bạn</h1>
       <p class="muted">Tôi đang học lập trình web.</p>
@@ -35,9 +36,18 @@
   </main>
 
   <script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
     function toggleMenu() {
-      document.getElementById('menu').classList.toggle('open');
+      const open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
     }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menu.classList.contains('open')) {
+        toggleMenu();
+        btn.focus();   // trả focus về nút, không bị lạc
+      }
+    });
   </script>
 </body>
 </html>
