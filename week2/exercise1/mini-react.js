@@ -155,3 +155,60 @@ export function createElement(type, props, ...children) {
 
   return vnode;
 }
+
+// 3. Chuyển VNode thành DOM thật
+export function renderToDOM(vnode) {
+  // Kiểm tra cấu trúc VNode trước khi render
+  if (!isVNode(vnode)) {
+    throw new TypeError('Cannot render invalid VNode');
+  }
+
+  // Trường hợp 1: Text VNode
+  if (vnode.type === TEXT_ELEMENT) {
+    return document.createTextNode(
+      vnode.props.nodeValue
+    );
+  }
+
+  // Trường hợp 2: Element VNode
+  const dom = document.createElement(vnode.type);
+
+  // Gán các thuộc tính cho DOM
+  for (const [name, value] of Object.entries(vnode.props)) {
+    if (name === 'children') {
+      continue;
+    }
+
+    // Xử lý event: onClick -> click
+    if (name.startsWith('on')) {
+      const eventName = name.slice(2).toLowerCase();
+
+      dom.addEventListener(eventName, value);
+    }
+
+    // className -> class
+    else if (name === 'className') {
+      dom.setAttribute('class', value);
+    }
+
+    // Thuộc tính boolean như disabled
+    else if (typeof value === 'boolean') {
+      if (value) {
+        dom.setAttribute(name, '');
+      }
+    }
+
+    // Thuộc tính thông thường: id, role...
+    else {
+      dom.setAttribute(name, String(value));
+    }
+  }
+
+  // Đệ quy render các phần tử con
+  for (const child of vnode.props.children) {
+    const childDOM = renderToDOM(child);
+    dom.appendChild(childDOM);
+  }
+
+  return dom;
+}
