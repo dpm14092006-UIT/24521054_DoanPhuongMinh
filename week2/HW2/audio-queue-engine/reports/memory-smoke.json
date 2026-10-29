@@ -1,0 +1,41 @@
+{
+  "description": "Six real MP3 load/play/cancel cycles, JS heap after forced GC. Does not measure native audio memory or prove zero leaks.",
+  "samples": [
+    {
+      "usedSize": 6196352,
+      "totalSize": 6934528,
+      "embedderHeapUsedSize": 1001640,
+      "backingStorageSize": 3769124
+    },
+    {
+      "usedSize": 6416652,
+      "totalSize": 6934528,
+      "embedderHeapUsedSize": 847608,
+      "backingStorageSize": 3769124
+    },
+    {
+      "usedSize": 6488168,
+      "totalSize": 7196672,
+      "embedderHeapUsedSize": 825160,
+      "backingStorageSize": 3769124
+    },
+    {
+      "usedSize": 6504320,
+      "totalSize": 6934528,
+      "embedderHeapUsedSize": 574064,
+      "backingStorageSize": 3769124
+    },
+    {
+      "usedSize": 6533000,
+      "totalSize": 7196672,
+      "embedderHeapUsedSize": 761016,
+      "backingStorageSize": 3769124
+    },
+    {
+      "usedSize": 6577868,
+      "totalSize": 7458816,
+      "embedderHeapUsedSize": 872664,
+      "backingStorageSize": 3769124
+    }
+  ]
+}
