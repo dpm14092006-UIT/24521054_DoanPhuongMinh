@@ -61,7 +61,9 @@ export function AudioVisualizer({
       animationId = requestAnimationFrame(draw);
 
       // Cap drawing to approximately 60 fps.
-      if (timestamp - lastFrameTime < 1000 / 60) {
+      const frameInterval = 1000 / 60;
+
+      if (timestamp - lastFrameTime < frameInterval - 1) {
         return;
       }
 
