@@ -8,3 +8,5 @@ Step 8: dev server smoke test passed: controls render, missing MP3 reports an er
 
 Step 10: applied 1ms frame tolerance; exact sustained 60fps is not yet verified.
 Step 11: six real MP3 load/play/cancel cycles completed; post-GC JS heap samples saved in reports/memory-smoke.json. Native audio memory and retained heap snapshots have not been audited; zero leaks is not claimed.
+
+Step 12: production build and two Vitest tests passed. Real MP3 loading, playback state, 512-bin selection and Stop passed browser smoke testing. Manual listening, sustained frame performance and full memory profiling remain to be checked.
