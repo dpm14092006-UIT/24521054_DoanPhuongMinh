@@ -1,0 +1,168 @@
+.dg {
+  width: 100%;
+  color: #14213d;
+}
+
+.dg-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0 12px;
+}
+
+.dg-toolbar label {
+  font-weight: 600;
+}
+
+.dg-filter {
+  width: 100%;
+  max-width: 340px;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #64748b;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #14213d;
+  font: inherit;
+}
+
+.dg-filter::placeholder {
+  color: #475569;
+  opacity: 1;
+}
+
+.dg-help {
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.dg-scroll {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #94a3b8;
+  border-radius: 8px;
+}
+
+.dg-table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.dg-table th,
+.dg-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #cbd5e1;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.dg-table th {
+  background: #eaf0f7;
+  color: #14213d;
+  font-weight: 700;
+}
+
+.dg-table td {
+  background: #ffffff;
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+.dg-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.dg-table tbody tr:hover td {
+  background: #f1f5f9;
+}
+
+.dg-table tbody tr[aria-selected="true"] td {
+  background: #dbeafe;
+}
+
+.dg-table tbody tr[aria-selected="true"] td:first-child {
+  box-shadow: inset 4px 0 #1d4ed8;
+}
+
+.dg-sort {
+  min-height: 44px;
+  padding: 8px 4px;
+  border: 0;
+  background: transparent;
+  color: #12366b;
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dg-sort:hover {
+  text-decoration: underline;
+}
+
+.dg-page {
+  min-height: 44px;
+  min-width: 88px;
+  padding: 10px 14px;
+  border: 1px solid #12366b;
+  border-radius: 6px;
+  background: #12366b;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dg-page:disabled {
+  border-color: #94a3b8;
+  background: #e2e8f0;
+  color: #475569;
+  cursor: not-allowed;
+}
+
+.dg-filter:focus-visible,
+.dg-sort:focus-visible,
+.dg-page:focus-visible,
+.dg-table th:focus-visible,
+.dg-table td:focus-visible {
+  outline: 3px solid #9f1239;
+  outline-offset: 2px;
+}
+
+.dg-status {
+  margin: 14px 0;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.dg-empty {
+  padding: 16px;
+  font-weight: 600;
+}
+
+.dg-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin: 16px 0;
+}
+
+@media (max-width: 600px) {
+  .dg-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .dg-filter {
+    max-width: 100%;
+  }
+
+  .dg-pagination {
+    justify-content: center;
+  }
+}
