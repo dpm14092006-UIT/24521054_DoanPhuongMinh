@@ -1,0 +1,4 @@
+:root { font-family: system-ui, sans-serif; color: #172033; background: #f2f6fc; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+.page { width: 100%; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 24px 16px; }
