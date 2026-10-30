@@ -11,6 +11,6 @@
 - [x] Connect labeled controls with `useId()` and parse IQ with `valueAsNumber`
 
 ## Commit 3: Delete, reset, and accessibility
-- [ ] Add delete and reset actions with sensible keyboard focus
-- [ ] Announce result counts and empty results accessibly
-- [ ] Add responsive styling and run lint/build verification
+- [x] Add delete and reset actions with sensible keyboard focus
+- [x] Announce result counts and empty results accessibly
+- [x] Add responsive styling and run lint/build verification
