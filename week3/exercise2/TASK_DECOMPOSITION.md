@@ -6,9 +6,9 @@
 - [x] Render the initial list with `key={person.id}`
 
 ## Commit 2: Search, IQ filter, and sorting
-- [ ] Add independent state for query, minimum IQ, and sort order
-- [ ] Derive the visible list during render; use case-insensitive search and `.toSorted()`
-- [ ] Connect labeled controls with `useId()` and parse IQ with `valueAsNumber`
+- [x] Add independent state for query, minimum IQ, and sort order
+- [x] Derive the visible list during render; use case-insensitive search and `.toSorted()`
+- [x] Connect labeled controls with `useId()` and parse IQ with `valueAsNumber`
 
 ## Commit 3: Delete, reset, and accessibility
 - [ ] Add delete and reset actions with sensible keyboard focus
