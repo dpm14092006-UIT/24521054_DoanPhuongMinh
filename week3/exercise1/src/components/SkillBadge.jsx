@@ -1,10 +1,13 @@
 import styles from './DeveloperCard.module.css'
 
-export default function SkillBadge({ name, level }) {
+export default function SkillBadge({
+  name = 'Unknown Skill',
+  tier = 'Beginner',
+}) {
   return (
     <li className={styles.skillBadge}>
       <strong className={styles.skillName}>{name}</strong>
-      <span className={styles.skillLevel}> — {level}</span>
+      <span className={styles.skillTier}>{` (${tier})`}</span>
     </li>
   )
 }
