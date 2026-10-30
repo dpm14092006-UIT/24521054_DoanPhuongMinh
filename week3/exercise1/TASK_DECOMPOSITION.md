@@ -12,3 +12,11 @@
 - [x] Add CSS Custom Properties and 375px responsive layout
 - [x] Verify no horizontal overflow at 375px
 - [x] Verify production build
+
+## Reference Contract Verification
+- [x] ES6 default parameters and named DeveloperCard export
+- [x] Article landmark named by h2#dev-heading
+- [x] Object.entries(metrics) with keyed Fragment pairs
+- [x] Reusable SkillBadge with stable skill IDs
+- [x] Scoped CSS Modules, no div, HTTPS avatar validation and fallback
+- [x] Responsive 375px layout and production build
