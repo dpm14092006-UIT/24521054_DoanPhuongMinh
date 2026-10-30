@@ -17,7 +17,7 @@ export default function App() {
   return (
     <main className="page">
       <DeveloperCard
-        fullName="Tran Vinh Khiem"
+        fullName="Doan Phuong Minh"
         role="Senior Systems Architect • UIT S3T • Pro Gamer"
         metrics={metrics}
         skills={skills}
