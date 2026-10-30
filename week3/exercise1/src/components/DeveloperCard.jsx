@@ -14,7 +14,7 @@ function getHttpsAvatar(url) {
 }
 
 export function DeveloperCard({
-  fullName = 'Tran Vinh Khiem',
+  fullName = 'Doan Phuong Minh',
   role = 'Senior Systems Architect • UIT S3T',
   avatarUrl = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=240',
   metrics = { commits: 512, vdomNodes: 0, a11yScore: 100 },
