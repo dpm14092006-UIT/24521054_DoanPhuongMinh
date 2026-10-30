@@ -1,5 +1,6 @@
 import { Fragment, useId, useState } from 'react'
 import SkillBadge from './SkillBadge'
+import styles from './DeveloperCard.module.css'
 
 export default function DeveloperCard({ developer }) {
   const { name, title, gamerTag, location, rank, experience, summary, avatarUrl, skills } = developer
@@ -15,27 +16,27 @@ export default function DeveloperCard({ developer }) {
   ]
 
   return (
-    <article className="card" aria-labelledby={`${baseId}-name`}>
-      <header className="cardHeader">
+    <article className={styles.card} aria-labelledby={`${baseId}-name`}>
+      <header className={styles.cardHeader}>
         {safeAvatarUrl && !imageFailed ? (
-          <img className="avatar" src={safeAvatarUrl} alt={`Ảnh đại diện của ${name}`} width={88} height={88} onError={() => setImageFailed(true)} />
+          <img className={styles.avatar} src={safeAvatarUrl} alt={`Ảnh đại diện của ${name}`} width={88} height={88} onError={() => setImageFailed(true)} />
         ) : (
-          <span className="avatarFallback" role="img" aria-label={`Ảnh đại diện viết tắt của ${name}`}>{initials}</span>
+          <span className={styles.avatarFallback} role="img" aria-label={`Ảnh đại diện viết tắt của ${name}`}>{initials}</span>
         )}
-        <hgroup className="identity">
+        <hgroup className={styles.identity}>
           <h1 id={`${baseId}-name`}>{name}</h1>
-          <p className="role">{title}</p>
+          <p className={styles.role}>{title}</p>
         </hgroup>
       </header>
-      <p className="summary">{summary}</p>
-      <dl className="details">
+      <p className={styles.summary}>{summary}</p>
+      <dl className={styles.details}>
         {details.map((detail) => (
           <Fragment key={detail.label}><dt>{detail.label}</dt><dd>{detail.value}</dd></Fragment>
         ))}
       </dl>
-      <section className="skills" aria-labelledby={`${baseId}-skills`}>
+      <section className={styles.skills} aria-labelledby={`${baseId}-skills`}>
         <h2 id={`${baseId}-skills`}>Technical Skills</h2>
-        <ul className="skillsList">
+        <ul className={styles.skillsList}>
           {skills.map((skill) => <SkillBadge key={skill.name} name={skill.name} level={skill.level} />)}
         </ul>
       </section>
