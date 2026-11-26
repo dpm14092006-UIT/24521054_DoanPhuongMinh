@@ -6,7 +6,7 @@
   "engines": { "node": ">=22.12.0" },
   "scripts": {
     "dev": "node --env-file-if-exists=.env server/start.js --dev --local",
-    "build": "vite build",
+    "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr",
     "start": "node --env-file-if-exists=.env server/start.js",
     "demo": "node --env-file-if-exists=.env server/start.js --local",
     "test": "node --test"

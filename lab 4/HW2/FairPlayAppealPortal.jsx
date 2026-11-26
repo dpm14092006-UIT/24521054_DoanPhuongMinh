@@ -111,13 +111,22 @@ function DossierView({ dossier, deadline, clockOffset, appeals, sendAppeal }) {
 }
 
 function ShowData({ appeal, open }) {
+  const fields = {
+    ...appeal,
+    reason: appealReasons[appeal.reason],
+    evidenceUrl: <a href={appeal.evidenceUrl}>{appeal.evidenceUrl}</a>,
+  };
+
   return (
     <details open={open} className="submitted-appeal">
       <summary>Đơn {appeal.id.slice(0, 8)} · <time dateTime={appeal.createdAt}>{dateFormat.format(new Date(appeal.createdAt))}</time></summary>
       <dl className="details">
         <div><dt>Trạng thái</dt><dd>Đã tiếp nhận</dd></div>
         {Object.entries(fieldLabels).map(([name, label]) => (
-          <div key={name}><dt>{label}</dt><dd>{name === 'reason' ? appealReasons[appeal[name]] : appeal[name]}</dd></div>
+          <div key={name}>
+            <dt>{label}</dt>
+            <dd>{fields[name]}</dd>
+          </div>
         ))}
       </dl>
     </details>

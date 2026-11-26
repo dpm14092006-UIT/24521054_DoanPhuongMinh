@@ -19,7 +19,8 @@ export default function SwipeDeck({ scope }) {
 
   useEffect(() => {
     const controller = new AbortController();
-    Promise.all([api('/api/profiles', controller), api(deckPath, controller)])
+    const options = { signal: controller.signal };
+    Promise.all([api('/api/profiles', options), api(deckPath, options)])
       .then(([items, current]) => {
         if (controller.signal.aborted) return;
         setProfiles(items);

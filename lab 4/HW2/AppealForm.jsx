@@ -23,7 +23,7 @@ function InputField({ name, as: Element = 'input', children, ...props }) {
 }
 
 export default function AppealForm({ dossier, expired, sendAppeal }) {
-  const [values, setValues] = useState(() => sampleAppeal(dossier));
+  const [values, setValues] = useState(() => sampleAppeal(dossier, window.location.origin));
   const [sending, setSending] = useState(false);
   const [serverError, setServerError] = useState('');
   const [serverFields, setServerFields] = useState({});
@@ -41,7 +41,7 @@ export default function AppealForm({ dossier, expired, sendAppeal }) {
   }
 
   function fillSample() {
-    setValues(sampleAppeal(dossier));
+    setValues(sampleAppeal(dossier, window.location.origin));
     setServerFields({});
     setServerError('');
     setNotice('');

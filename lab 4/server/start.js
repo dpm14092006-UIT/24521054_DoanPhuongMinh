@@ -1,8 +1,9 @@
-import { existsSync, mkdirSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import compression from 'compression';
 import express from 'express';
 import mongoose from 'mongoose';
+import { photos, photosInCategory } from '../HW3/photos.js';
 import { appealRouter } from './appealRoutes.js';
 import { handleError } from './common.js';
 import { seedProfiles, swipeRouter } from './swipeRoutes.js';
@@ -11,9 +12,10 @@ const dev = process.argv.includes('--dev');
 const local = process.argv.includes('--local');
 const root = new URL('../', import.meta.url);
 const index = fileURLToPath(new URL('dist/index.html', root));
+const ssrEntry = new URL('dist-ssr/entry-server.js', root);
 const port = Number(process.env.PORT || 4174);
 
-if (!dev && !existsSync(index)) {
+if (!dev && (!existsSync(index) || !existsSync(ssrEntry))) {
   console.error('Chưa có bản build. Hãy chạy npm run build trước.');
   process.exit(1);
 }
@@ -55,9 +57,23 @@ try {
     vite = await createServer({ server: { middlewareMode: true } });
     app.use(vite.middlewares);
   } else {
+    const template = readFileSync(index, 'utf8');
+    const { renderGallery } = await import(ssrEntry.href);
     app.use('/assets', express.static(fileURLToPath(new URL('dist/assets/', root)), { immutable: true, maxAge: '1y' }));
     app.use(express.static(fileURLToPath(new URL('dist/', root)), { index: false, maxAge: '1h' }));
-    app.get('/{*path}', (_req, res) => res.set('Cache-Control', 'no-cache').sendFile(index));
+    app.use(['/assets', '/photos'], (_req, res) => res.sendStatus(404));
+    app.get('/{*path}', (req, res) => {
+      res.set('Cache-Control', 'no-cache');
+      if (['/hw3', '/hw1/gallery'].includes(req.path.replace(/\/$/, ''))) {
+        const selected = photos.find(({ id }) => id === req.query.photoId);
+        const images = selected ? [`${selected.id}.webp`] : photosInCategory(req.query.category).slice(0, 2)
+          .map(({ id }) => `${id}-thumb.webp`);
+        for (const name of images) res.append('Link', `</photos/${name}>; rel=preload; as=image; fetchpriority=high`);
+        const markup = renderGallery(req.originalUrl);
+        return res.type('html').send(template.replace('<div id="root"></div>', () => `<div id="root">${markup}</div>`));
+      }
+      res.type('html').send(template);
+    });
   }
   app.use(handleError);
   listener = await new Promise((resolve, reject) => {

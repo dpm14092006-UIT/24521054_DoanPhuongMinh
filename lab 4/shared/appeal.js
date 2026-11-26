@@ -28,14 +28,15 @@ export const fieldLabels = {
   evidenceUrl: 'Liên kết bằng chứng',
 };
 
-export function sampleAppeal(dossier) {
+export function sampleAppeal(dossier, origin = 'https://example.com') {
+  const photoId = dossier.id === 'himass' ? 'coding' : 'editing-desk';
   return {
     name: dossier.id === 'himass' ? 'Nguyễn Minh An' : 'Trần Hoàng Linh',
     email: `${dossier.id}.demo@example.com`,
     team: dossier.team,
     reason: dossier.id === 'himass' ? 'evidence' : 'procedure',
     statement: `Tôi đề nghị đối chiếu ${dossier.reference.toLowerCase()} với biên bản, kiểm tra các mốc liên quan và xem xét lại kết quả theo quy trình.`,
-    evidenceUrl: `https://example.com/evidence/${dossier.id}`,
+    evidenceUrl: new URL(`/hw3?category=evidence&photoId=${photoId}`, origin).href,
   };
 }
 

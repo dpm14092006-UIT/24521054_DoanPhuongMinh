@@ -36,3 +36,9 @@ export const photos = [
     author: 'Bouwe van Oosten', source: 'https://unsplash.com/photos/a-laptop-computer-sitting-on-top-of-a-desk-H_rwPR8oyjE',
   },
 ];
+
+export function photosInCategory(category) {
+  return category === 'all' || !Object.hasOwn(categories, category)
+    ? photos
+    : photos.filter((photo) => photo.category === category);
+}

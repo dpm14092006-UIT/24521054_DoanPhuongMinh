@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Link, useSearchParams } from 'react-router';
-import { categories, photos } from './photos.js';
+import { categories, photos, photosInCategory } from './photos.js';
 import './gallery.css';
 
 export default function PhotoGalleryLayout() {
@@ -13,7 +13,7 @@ export default function PhotoGalleryLayout() {
   const category = Object.hasOwn(categories, categoryParam) ? categoryParam : 'all';
   const photoId = params.get('photoId');
   const photo = photos.find(({ id }) => id === photoId);
-  const results = category === 'all' ? photos : photos.filter((item) => item.category === category);
+  const results = photosInCategory(category);
   const slideshow = results.includes(photo) ? results : photos;
   const position = slideshow.indexOf(photo);
   const modalShown = Boolean(photo);
@@ -78,7 +78,7 @@ export default function PhotoGalleryLayout() {
                 if (!(event.ctrlKey || event.metaKey || event.shiftKey || event.altKey)) openerRef.current = event.currentTarget;
               }}>
               <img src={`/photos/${item.id}-thumb.webp`} alt={item.alt} width="480" height="320"
-                decoding="async" loading={index < 3 ? 'eager' : 'lazy'} fetchPriority={index === 0 ? 'high' : undefined} />
+                decoding="async" loading={index < 3 ? 'eager' : 'lazy'} fetchPriority={index < 2 ? 'high' : undefined} />
               <span>{item.title}</span>
             </Link>
           </li>
