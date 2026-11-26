@@ -1,11 +1,13 @@
-import { lazy, Suspense } from 'react';
-import { Link, NavLink, Outlet, Route, Routes } from 'react-router';
+import { lazy, Suspense, useEffect } from 'react';
+import { Link, NavLink, Outlet, Route, Routes, useLocation } from 'react-router';
+import Homework1 from '../HW1/Homework1.jsx';
+import Homework3 from '../HW3/Homework3.jsx';
+import PhotoGallery from '../HW3/PhotoGalleryLayout.jsx';
 
-const Homework1 = lazy(() => import('../HW1/Homework1.jsx'));
 const Homework2 = lazy(() => import('../HW2/Homework2.jsx'));
-const Homework3 = lazy(() => import('../HW3/Homework3.jsx'));
+const Homework4 = lazy(() => import('../HW4/Homework4.jsx'));
+const Homework4FairPlayPortal = lazy(() => import('../HW4/FairPlayAppealPortal.jsx'));
 const SwipeDeck = lazy(() => import('../HW1/SwipeDeck.jsx'));
-const PhotoGallery = lazy(() => import('../HW3/PhotoGalleryLayout.jsx'));
 const FairPlayAppealPortal = lazy(() => import('../HW2/FairPlayAppealPortal.jsx'));
 const DossierRoute = lazy(() => import('../HW2/FairPlayAppealPortal.jsx').then(
   (module) => ({ default: module.DossierRoute }),
@@ -18,16 +20,27 @@ const homework = [
   { to: '/hw1', label: 'HW1', title: 'Bộ thẻ vuốt và thư viện ảnh' },
   { to: '/hw2', label: 'HW2', title: 'Hồ sơ kháng nghị fair-play Esports' },
   { to: '/hw3', label: 'HW3', title: 'Thư viện ảnh và hồ sơ kháng nghị' },
+  { to: '/hw4', label: 'HW4', title: 'Bộ thẻ full-stack và bảng so sánh mức án' },
 ];
 
 function Layout() {
+  const { pathname } = useLocation();
+  const dossierPath = pathname === '/dossier' || pathname.startsWith('/dossier/');
+  const current = dossierPath ? homework[1] : homework.find(({ to }) => pathname === to || pathname.startsWith(to + '/'));
+
+  useEffect(() => {
+    document.title = current ? `${current.label} · ${current.title} | Lab 4` : 'Lab 4 | UIT–S3T';
+  }, [current]);
+
   return (
     <>
       <a className="skip-link" href="#main">Đến nội dung chính</a>
       <header className="site-header">
         <nav className="shell site-nav" aria-label="Điều hướng chính">
           <NavLink to="/" end>Lab 4</NavLink>
-          {homework.map(({ to, label }) => <NavLink key={to} to={to}>{label}</NavLink>)}
+          {homework.map(({ to, label }) => (
+            <Link key={to} to={to} aria-current={current?.to === to ? 'page' : undefined}>{label}</Link>
+          ))}
         </nav>
       </header>
       <main id="main" className="shell site-main" tabIndex={-1}>
@@ -73,6 +86,13 @@ export default function App() {
           <Route path="dossier" element={<FairPlayAppealPortal dossierPath="/hw3/dossier" />}>
             <Route index element={<DossierStart />} />
             <Route path=":playerID" element={<DossierRoute scope="hw3" />} />
+          </Route>
+        </Route>
+        <Route path="hw4" element={<Homework4 />}>
+          <Route index element={<SwipeDeck scope="hw4" />} />
+          <Route path="dossier" element={<Homework4FairPlayPortal />}>
+            <Route index element={<DossierStart />} />
+            <Route path=":playerID" element={<DossierRoute scope="hw4" />} />
           </Route>
         </Route>
         <Route path="*" element={<section><h1>Không tìm thấy trang</h1><Link to="/">Về danh sách bài tập</Link></section>} />
