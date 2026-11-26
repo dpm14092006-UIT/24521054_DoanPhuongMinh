@@ -21,18 +21,15 @@ a:hover { color: #071f48; }
 
 .shell { max-width: 65rem; margin-inline: auto; padding-inline: 1rem; }
 .site-header { background: #fff; border-bottom: 1px solid #cdd6e1; }
-.site-nav, .section-nav, .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.site-nav, .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
 .site-nav { padding-block: 0.65rem; }
-.site-nav a, .section-nav a { min-height: 44px; padding: 0.55rem 0.7rem; }
+.site-nav a { min-height: 44px; padding: 0.55rem 0.7rem; }
 .site-nav a:first-child { font-weight: 750; }
 a[aria-current="page"], a[aria-current="true"] { background: #e0ebfa; color: #113665; border-radius: 0.35rem; font-weight: 700; }
 .site-main { padding-block: 1.65rem 3.5rem; }
-.section-nav { margin-bottom: 1.25rem; }
 .skip-link { position: absolute; z-index: 5; left: 1rem; top: 0.6rem; padding: 0.65rem; background: #fff; transform: translateY(-200%); }
 .skip-link:focus { transform: none; }
 .route-loading { min-height: 12rem; }
-.homework-list { list-style: none; padding: 0; display: grid; gap: 0.65rem; }
-.homework-list a { display: block; padding: 0.85rem; background: #fff; border: 1px solid #cdd6e1; border-radius: 0.4rem; }
 
 .panel { background: #fff; border: 1px solid #cdd6e1; border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem; }
 .muted { color: #42516a; }
