@@ -1,0 +1,29 @@
+.case-layout { display: grid; grid-template-columns: minmax(15rem, 1fr) minmax(0, 2.5fr); gap: 1rem; align-items: start; }
+.case-nav { display: grid; gap: 0.25rem; padding: 0.5rem; }
+.case-nav a { padding: 0.65rem; min-height: 44px; }
+.appeal-fieldset { min-inline-size: 0; border: 0; padding: 0; margin: 0; }
+.appeal-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; margin-bottom: 1rem; }
+.appeal-field { display: grid; align-content: start; gap: 0.25rem; }
+.appeal-field:has(textarea), .appeal-field:has(input[type="url"]) { grid-column: 1 / -1; }
+.appeal-field label { font-weight: 650; }
+.appeal-field input, .appeal-field select, .appeal-field textarea {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid #72849a;
+  border-radius: 0.35rem;
+  padding: 0.5rem;
+  color: inherit;
+  background: #fff;
+}
+.appeal-field [aria-invalid="true"] { border-color: #982018; }
+.appeal-field textarea { resize: vertical; }
+.form-status { margin: 0.65rem 0 0; }
+.sla-clock { margin: 0; }
+.sla-clock span[role="timer"] { font-variant-numeric: tabular-nums; font-weight: 750; }
+.submitted-appeal + .submitted-appeal { margin-top: 0.6rem; }
+.submitted-appeal summary { cursor: pointer; min-height: 44px; padding-block: 0.55rem; }
+.submitted-appeal .details { margin-bottom: 0; }
+
+@media (max-width: 45rem) {
+  .case-layout, .appeal-fields { grid-template-columns: minmax(0, 1fr); }
+}

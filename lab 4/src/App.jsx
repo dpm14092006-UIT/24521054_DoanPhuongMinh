@@ -2,9 +2,17 @@ import { lazy, Suspense } from 'react';
 import { Link, NavLink, Outlet, Route, Routes } from 'react-router';
 
 const Homework1 = lazy(() => import('../HW1/Homework1.jsx'));
+const Homework2 = lazy(() => import('../HW2/Homework2.jsx'));
+const DossierRoute = lazy(() => import('../HW2/FairPlayAppealPortal.jsx').then(
+  (module) => ({ default: module.DossierRoute }),
+));
+const DossierStart = lazy(() => import('../HW2/FairPlayAppealPortal.jsx').then(
+  (module) => ({ default: module.DossierStart }),
+));
 
 const homework = [
   { to: '/hw1', label: 'HW1', title: 'Hẹn hò nhưng không yêu' },
+  { to: '/hw2', label: 'HW2', title: 'Hồ sơ kháng nghị fair-play Esports' },
 ];
 
 function Layout() {
@@ -45,6 +53,13 @@ export default function App() {
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="hw1" element={<Homework1 />} />
+        <Route path="hw2" element={<Homework2 />}>
+          <Route index element={<DossierStart />} />
+        </Route>
+        <Route path="dossier" element={<Homework2 />}>
+          <Route index element={<DossierStart />} />
+          <Route path=":playerID" element={<DossierRoute scope="hw2" />} />
+        </Route>
         <Route path="*" element={<section><h1>Không tìm thấy trang</h1><Link to="/">Về danh sách bài tập</Link></section>} />
       </Route>
     </Routes>

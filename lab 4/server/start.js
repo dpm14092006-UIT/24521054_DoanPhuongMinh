@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url';
 import compression from 'compression';
 import express from 'express';
 import mongoose from 'mongoose';
+import { appealRouter } from './appealRoutes.js';
 import { handleError } from './common.js';
 import { seedProfiles, swipeRouter } from './swipeRoutes.js';
 
@@ -44,7 +45,10 @@ try {
   const app = express();
   app.disable('x-powered-by');
   app.use(compression());
-  app.use('/api', express.json({ limit: '16kb' }), swipeRouter);
+  app.use('/api', (_req, res, next) => {
+    res.set('Cache-Control', 'no-store');
+    next();
+  }, express.json({ limit: '16kb' }), swipeRouter, appealRouter);
   app.use('/api', (_req, res) => res.status(404).json({ error: 'API không tồn tại.' }));
   if (dev) {
     const { createServer } = await import('vite');
