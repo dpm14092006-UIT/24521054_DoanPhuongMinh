@@ -1,0 +1,19 @@
+.gallery-filter { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin-bottom: 1rem; }
+.gallery-filter label { font-weight: 650; }
+.gallery-filter p { margin: 0; }
+.gallery-filter select { min-height: 44px; border: 1px solid #72849a; border-radius: 0.35rem; padding: 0.4rem; background: #fff; color: inherit; }
+.photo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.9rem; list-style: none; padding: 0; }
+.photo-grid a { display: block; height: 100%; border: 1px solid #cdd6e1; border-radius: 0.45rem; background: #fff; }
+.photo-grid img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; border-radius: 0.4rem 0.4rem 0 0; background: #dce5ef; object-fit: cover; }
+.photo-grid span { display: block; padding: 0.6rem; font-weight: 650; }
+
+.photo-dialog { width: min(53rem, calc(100% - 1.5rem)); max-height: calc(100% - 1.5rem); border: 1px solid #72849a; border-radius: 0.5rem; padding: 0.85rem; color: inherit; background: #fff; }
+.photo-dialog::backdrop { background: #111c31d9; }
+.photo-dialog img { display: block; width: 100%; height: auto; max-height: 58dvh; object-fit: contain; background: #e6edf7; }
+.photo-dialog p { margin: 0.65rem 0; }
+.dialog-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.55rem; margin-bottom: 0.65rem; }
+.dialog-header h3 { margin: 0; }
+
+@media (max-width: 44rem) {
+  .photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
