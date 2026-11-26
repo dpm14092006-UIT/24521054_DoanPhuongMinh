@@ -1,0 +1,26 @@
+{
+  "name": "uit-lab4-hw2-swipe-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 4172 --strictPort",
+    "dev:api": "vite --host 127.0.0.1 --port 4172 --strictPort --mode api",
+    "build": "vite build",
+    "build:api": "vite build --mode api",
+    "preview": "vite preview --host 127.0.0.1 --port 4172 --strictPort",
+    "preview:api": "vite preview --host 127.0.0.1 --port 4172 --strictPort --mode api",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "vite": "^7.3.0",
+    "@vitejs/plugin-react": "^5.1.0"
+  }
+}
